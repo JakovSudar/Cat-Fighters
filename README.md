@@ -1,3 +1,3 @@
 ### Cat fighters app
 ---
-Add cats, assing them their powers, and let them fight!
+Add cats, assign them their powers, and let them fight!
