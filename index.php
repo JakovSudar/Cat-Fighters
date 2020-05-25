@@ -58,7 +58,7 @@ $populator = new Populator();
         <div id="secondSide" class="container d-flex flex-column align-items-center side second-side col-5">
             <div class="row">
                 <div class="col-auto featured-cat-fighter">
-                    <img class="featured-cat-fighter-image img-rounded" src="https://via.placeholder.com/300" alt="Featured cat fighter">
+                    <img class="featured-cat-fighter-image img-rounded" width=300, height = 300  src="https://via.placeholder.com/300" alt="Featured cat fighter">
                 </div>
                 <div class="col-auto">
                     <ul class="cat-info list-group">
