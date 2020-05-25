@@ -11,7 +11,7 @@ $wins = $_POST["wins"];
 $loss = $_POST["loss"];
 
 //mjesto za spremanje slike
-$target_dir = __DIR__."/uploads/";
+$target_dir = __DIR__."/../uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
