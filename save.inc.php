@@ -1,13 +1,14 @@
 <?php
-require "./connection.inc.php";
+//require "./connection.inc.php";
+use db\DbHandler;
 
 $name = $_POST["name"];
 $age = $_POST["age"];
 $info = $_POST["info"];
 $wins = $_POST["wins"];
 $loss = $_POST["loss"];
-$imgUrl = "testni url";
 
+//mjesto za spremanje slike
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
@@ -24,30 +25,22 @@ if(isset($_POST["submit"])) {
     }
   }
   
-  // Check if file already exists
+  // Provjera posto ji li vec takva slika
   if (file_exists($target_file)) {
     echo "Sorry, file already exists.";
     $uploadOk = 0;
   }
+    
   
-  // Check file size
-  if ($_POST["fileToUpload"]["size"] > 500000) {
-    echo "Sorry, your file is too large.";
+  //Dopustanje samo odredenih fomata
+  if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" ) {    
     $uploadOk = 0;
-  }
+  }  
   
-  // Allow certain file formats
-  if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-  && $imageFileType != "gif" ) {
-    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-    $uploadOk = 0;
-  }
-  
-  // Check if $uploadOk is set to 0 by an error
   if ($uploadOk == 0) {
-    echo "Sorry, your file was not uploaded.";
-  // if everything is ok, try to upload file
+    echo "Sorry, your file was not uploaded."; 
   } else {
+    //premjestanje slike na odredeno mjesto na serveru
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
       echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
     } else {
@@ -55,14 +48,22 @@ if(isset($_POST["submit"])) {
     }
   } 
 
+  //dodavanje macke u bazu. Slika se pohranjuje kao url do slike
+
+
 $sql = "INSERT INTO cats (name,age,info,wins,loss,img) VALUES ('".$name."','".$age."','".$info."','".$wins."','".$loss."','".$target_file."')";
 
+$db = new DbHandler();
+$db->insert($sql);
+
+/*
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }
   $conn->close();
+  */
   header("Location: ./index.php");
 
 

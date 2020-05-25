@@ -3,6 +3,7 @@
 
 require "./connection.inc.php";
 
+//skripta se poziva preko ajaxa te joj se predaju imena macaka
 $winnerName = $_POST['winner'];
 $loserName = $_POST['loser'];
 

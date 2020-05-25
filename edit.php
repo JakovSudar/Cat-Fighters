@@ -22,7 +22,7 @@ if($result->num_rows>0){
 </head>
 <body>
     <div class="container mt-4 custom-width">
-        <form action="edit.inc.php" id="forma" method="POST" enctype="multipart/form-data">
+        <form action="edit.inc.php" id="forma" method="POST" enctype="multipart/form-data">            
             <input type="text" hidden class="form-control" id="id" value="<?php echo $cat['id'];?>" name="id">
             <div class="form-group">
                 <label for="name">Name</label>
@@ -77,6 +77,7 @@ if($result->num_rows>0){
         $("#submit").click(function(){
             $("#forma").submit();
         })
+        //pozivanje skripte putem ajaxa, predajemo joj id macke koji je spremljen u nevidljivi element
         $("#deleteBtn").click(function(){            
             $.ajax({
                 data: 'id=' + $("#id").val(),
