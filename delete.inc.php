@@ -1,14 +1,14 @@
 <?php
-require "./connection.inc.php";
+require "./DbHandler.php";
+use db\DbHandler;
+
+$db = new DbHandler();
 
 $id=$_POST['id'];
 $sql = "SELECT img FROM cats WHERE id=$id";
-$result = $conn->query($sql);
+$result = $db->select($sql);
 $imgUrl = $result->fetch_assoc()['img'];
 unlink($imgUrl);
-$sql = "DELETE FROM cats WHERE id=$id"; 
-$conn->query($sql);
-
-echo "deleted ".$id;
+$db->delete($id);
 
 ?>

@@ -1,6 +1,9 @@
 <?php
+require "./DbHandler.php";
+use db\DbHandler;
+$db = new DbHandler();
+
 //azuriranje podataka u tablici
-include "./connection.inc.php";
 $id = $_POST['id'];
 $name = $_POST['name'];
 $age = $_POST['age'];
@@ -16,7 +19,7 @@ $sql = "UPDATE cats SET name= '".$name."',
         WHERE id='".$id."'
 ";
 
-$conn->query($sql);
+$db->update($sql);
 
 header("Location: ./index.php");
 

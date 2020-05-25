@@ -34,6 +34,17 @@ class DbHandler{
         $this->disconnect();
     }
 
+    public function update($query){
+        $this->connect();
+
+        $sql = $this->conn->query($query);
+
+        if (!$sql) {
+            echo "Query fail";
+        }
+        $this->disconnect();
+    }
+
     public function select($query)
     {
         $this->connect();
