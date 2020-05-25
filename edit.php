@@ -22,7 +22,7 @@ if($result->num_rows>0){
 </head>
 <body>
     <div class="container mt-4 custom-width">
-        <form action="edit.inc.php" id="forma" method="POST" enctype="multipart/form-data">            
+        <form action="./includes/edit.inc.php" id="forma" method="POST" enctype="multipart/form-data">            
             <input type="text" hidden class="form-control" id="id" value="<?php echo $cat['id'];?>" name="id">
             <div class="form-group">
                 <label for="name">Name</label>
@@ -81,7 +81,7 @@ if($result->num_rows>0){
         $("#deleteBtn").click(function(){            
             $.ajax({
                 data: 'id=' + $("#id").val(),
-                url: './delete.inc.php',
+                url: './includes/delete.inc.php',
                 method: 'POST',
                 success: function(msg){
                     window.location.replace("./index.php");

@@ -77,7 +77,7 @@ class CatSelector{
                 //ajax zahtjev za php skriptu koja ce azurirati broj wins/loss
                 $.ajax({
                     data: {winner: args.winner.name, loser: args.looser.name},
-                    url: './afterFight.inc.php',
+                    url: './includes/afterFight.inc.php',
                     method: 'POST',
                     success: function(msg){                       
                         
