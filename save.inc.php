@@ -56,7 +56,7 @@ if(isset($_POST["submit"])) {
     }
   } 
 
-  echo '<a href:"./index.php" class="btn btn-danger btn-lg">Back';
+  echo '<br><a href:".\/index.php" class="btn btn-danger btn-lg">Back';
 
 
 
