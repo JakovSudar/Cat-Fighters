@@ -1,5 +1,5 @@
 <?php
-require "./DbHandler.php";
+require "../DbHandler.php";
 use db\DbHandler;
 $db = new DbHandler();
 
