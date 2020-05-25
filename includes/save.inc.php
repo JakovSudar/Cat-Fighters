@@ -11,7 +11,7 @@ $wins = $_POST["wins"];
 $loss = $_POST["loss"];
 
 //mjesto za spremanje slike
-$target_dir = "../uploads/";
+$target_dir = __DIR__."/uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -54,7 +54,7 @@ if(isset($_POST["submit"])) {
       $sql = "INSERT INTO cats (name,age,info,wins,loss,img) VALUES ('".$name."','".$age."','".$info."','".$wins."','".$loss."','".$target_file."')";
       $db = new DbHandler();
       $db->insert($sql);
-      header("Location: ./index.php");
+      header("Location: ../index.php");
 
     } else {
       echo "Sorry, there was an error uploading your file.";

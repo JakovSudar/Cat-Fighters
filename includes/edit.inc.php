@@ -21,5 +21,5 @@ $sql = "UPDATE cats SET name= '".$name."',
 
 $db->update($sql);
 
-header("Location: ./index.php");
+header("Location: ../index.php");
 
