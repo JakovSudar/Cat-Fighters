@@ -2,7 +2,7 @@
 
 namespace db;
 
-require_once "./env.php";
+require_once __DIR__."./env.php";
 
 use db\DbConfig as Config;
 
