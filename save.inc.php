@@ -1,5 +1,7 @@
 <?php
 //require "./connection.inc.php";
+require "./DbHandler.php";
+
 use db\DbHandler;
 
 $name = $_POST["name"];
