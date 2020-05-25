@@ -1,13 +1,16 @@
 <?php
 
+require "./DbHandler.php";
+use db\DbHandler;
 
 class Populator {
     
     public function populateCats(){
         error_reporting(E_ERROR | E_PARSE);
-        require "./connection.inc.php";                            
+        //require "./connection.inc.php";    
+        $db = new DbHandler();
         $sql = "SELECT * FROM cats";
-        $result = $conn->query($sql);
+        $result = $db->select($sql);
         if($result->num_rows > 0){
             while($cat = $result->fetch_assoc()){ 
 
