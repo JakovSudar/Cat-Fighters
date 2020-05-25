@@ -64,7 +64,7 @@ class DbHandler{
     {
         $this->connect();
 
-        $sql = $this->conn->query("DELETE FROM todo WHERE id = '$id'");
+        $sql = $this->conn->query("DELETE FROM cats WHERE id = '$id'");
 
         if (!$sql) {
             echo "Query fail";
