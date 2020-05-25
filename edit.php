@@ -1,9 +1,11 @@
 <?php
 //dohvacanje macke koju zelimo urediti kako bi mogli popuniti formu
-require "./connection.inc.php";
+require "./DbHandler.php";
+use db\DbHandler;
+$db = new DbHandler();
 $id = $_POST['id'];
 $sql = "SELECT * from cats WHERE id='".$id."'";
-$result = $conn->query($sql);
+$result = $db->select($sql);
 if($result->num_rows>0){
     $cat = $result->fetch_assoc();     
 }
