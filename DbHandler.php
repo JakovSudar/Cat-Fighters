@@ -16,6 +16,7 @@ class DbHandler{
         if ($this->conn->connect_errno) {
             echo "Connection failed {$this->connection->connect_errno}";
         }
+        else echo"connection succes";
     }
 
     public function disconnect(){
@@ -30,7 +31,6 @@ class DbHandler{
         if (!$sql) {
             echo "Query fail";
         }
-
         $this->disconnect();
     }
 

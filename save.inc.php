@@ -64,6 +64,7 @@ if ($conn->query($sql) === TRUE) {
   }
   $conn->close();
   */
-  header("Location: ./index.php");
+echo "header";
+header("Location: ./index.php");
 
 
