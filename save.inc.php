@@ -56,7 +56,8 @@ if(isset($_POST["submit"])) {
     }
   } 
 
-  echo '<br><a href:"https://catfighters.herokuapp.com/" class="btn btn-danger btn-lg">Back';
+  echo"<br>";
+  echo '<a href="https://catfighters.herokuapp.com/index.php">Click here</a>';
 
 
 
