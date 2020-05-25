@@ -18,3 +18,5 @@ $sql = "UPDATE cats SET name= '".$name."',
 
 $conn->query($sql);
 
+header("Location: ./index.php");
+
