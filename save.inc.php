@@ -36,6 +36,7 @@ if(isset($_POST["submit"])) {
   
   //Dopustanje samo odredenih fomata
   if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" ) {    
+    echo "wrong format!";
     $uploadOk = 0;
   }  
   
