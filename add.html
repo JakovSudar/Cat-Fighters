@@ -62,7 +62,7 @@
             window.location = "./index.php";
         })
         $("#submit").click(function(){
-            var inputs = getElementsByTagName('input');
+            var inputs = document.querySelectorAll("input");
              for (var i = 0; i < inputs.length; i++) {
             // only validate the inputs that have the required attribute                
                     if(inputs[i].value == ""){
