@@ -175,7 +175,7 @@ class CatSelector{
             if(images.hasOwnProperty(key)){
                 let image = images[key];                     
                 image.addEventListener("click",(e) => {
-                    console.log("json: " +image.dataset.info)
+                    console.log("Prije: "+this.fighters)
                     const data = JSON.parse(image.dataset.info);
                     const imgUrl = image.querySelector("img").src;   
     
@@ -190,7 +190,8 @@ class CatSelector{
                         }else{
                             document.querySelector(this.buttons.fight).disabled = true;
                         }                                                  
-                    }                
+                    }  
+                    console.log("Poslije: "+this.fighters)              
                 });
             }            
         }        
@@ -247,11 +248,11 @@ class CatSelector{
         const wins = record.querySelector(info.wins);
         const loss = record.querySelector(info.loss);
 
-        if(name.textContent !== "Cat Name"){
+        if(name.textContent !== "Cat Name" && !this.fighted){
             const id = this._getCatByName(name.textContent,catImages)
             const removeIndex = this.fighters.indexOf(id);
             this.fighters.splice(removeIndex,1);            
-        }        
+        }       
         name.textContent = cat.name;
         age.textContent = cat.age;
         catInfo.textContent = cat.catInfo;
