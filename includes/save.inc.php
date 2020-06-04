@@ -39,6 +39,10 @@ if(isset($_POST["submit"])) {
 $maxDim = 300;
 $file_name = $_FILES['fileToUpload']['tmp_name'];
 list($width, $height, $type, $attr) = getimagesize( $file_name );
+echo $width . $height . $type ;
+echo "<br>";
+echo $file_name; 
+
 if ( $width > $maxDim || $height > $maxDim ) {
     $target_filename = $file_name;
     $ratio = $width/$height;
@@ -57,16 +61,13 @@ if ( $width > $maxDim || $height > $maxDim ) {
     imagedestroy( $dst );
     echo $target_filename;
     echo "<br>";
-}
-    
-  
+}   
   //Dopustanje samo odredenih fomata
   if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" ) {    
     echo "wrong format!";
     echo"<br>";
     $uploadOk = 0;
-  }  
-  
+  }    
   if ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded."; 
     echo"<br>";
