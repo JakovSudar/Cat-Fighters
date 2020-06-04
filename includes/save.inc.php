@@ -38,9 +38,9 @@ if(isset($_POST["submit"])) {
   //resizeanje slike na 300px
   $maxDim = 300;
   $file_name = $_FILES['fileToUpload']['tmp_name'];
+  echo "filename: ".$file_name;
   list($width, $height, $type, $attr) = getimagesize( $file_name );
-  echo "width height type: ";
-  echo $width ." ". $height ." ". $type ;    
+    
 
   if ( $width > $maxDim || $height > $maxDim ) {
       $target_filename = $file_name;
@@ -74,7 +74,7 @@ if(isset($_POST["submit"])) {
     echo"<br>";
   } else {
     
-    if (move_uploaded_file($target_filename, $target_file)) {
+    if (move_uploaded_file( $_FILES['fileToUpload']['tmp_name'], $target_file)) {
       echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
       $sql = "INSERT INTO cats (name,age,info,wins,loss,img) VALUES ('".$name."','".$age."','".$info."','".$wins."','".$loss."','".$target_file."')";
       $db = new DbHandler();
