@@ -40,9 +40,7 @@ if(isset($_POST["submit"])) {
   $file_name = $_FILES['fileToUpload']['tmp_name'];
   list($width, $height, $type, $attr) = getimagesize( $file_name );
   echo "width height type: ";
-  echo $width . $height . $type ;
-  echo "<br>";
-  echo $file_name; 
+  echo $width ." ". $height ." ". $type ;    
 
   if ( $width > $maxDim || $height > $maxDim ) {
       $target_filename = $file_name;
@@ -60,8 +58,10 @@ if(isset($_POST["submit"])) {
       imagedestroy( $src );
       imagepng( $dst, $target_filename ); // adjust format as needed
       imagedestroy( $dst );
-      echo $target_filename;
-      echo "<br>";
+      list($width, $height, $type, $attr) = getimagesize( $target_filename );
+      echo "Nakon resizeanja: <br>";
+      echo "width height type: ";
+      echo $width ." ". $height ." ". $type ; 
   }   
   //Dopustanje samo odredenih fomata
   if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" ) {    
@@ -73,8 +73,8 @@ if(isset($_POST["submit"])) {
     echo "Sorry, your file was not uploaded."; 
     echo"<br>";
   } else {
-    //premjestanje slike na odredeno mjesto na serveru
-    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+    
+    if (move_uploaded_file($target_filename, $target_file)) {
       echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
       $sql = "INSERT INTO cats (name,age,info,wins,loss,img) VALUES ('".$name."','".$age."','".$info."','".$wins."','".$loss."','".$target_file."')";
       $db = new DbHandler();

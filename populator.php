@@ -22,7 +22,7 @@ class Populator {
                 $dcat->record->loss = $cat['loss'];                                                                                                               
                 echo '<div class="col-md-4 mb-1">';
                     echo '<div class="fighter-box" data-info = \''.(json_encode($dcat,JSON_NUMERIC_CHECK)) .'\' >';                                                                                 
-                    echo'<img src="'.$cat['img'].'" alt="Fighter Box" width ="150" height="150" >';
+                    echo'<img src="'.  substr($cat['img'], 1).'" alt="Fighter Box" width ="150" height="150" >';
                     echo '<form method = "POST" action="edit.php">';
                         echo '<input type="hidden" name="id" value="'.$cat['id'].'" >';
                         echo '<button type="submit"  class="btn btn-success editBtn btn-sm ml-4">Edit</button>';
